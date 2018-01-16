@@ -1,0 +1,21 @@
+\section{Polynomial curves}
+Polynomial:
+$P(u) = a_0 + a_1 u + a_2 u^2 + \cdots + a_nu^n$ where $a_n \not = 0$.
+$\{1,u,u^2,\cdots,u^n\}$ is called the standard basis
+
+A polynomial curve: $Q(u) = \begin{bmatrix} x(u) \\ y(u) \end{bmatrix} = \begin{bmatrix}  a_0 + a_1* u \\ b_0 + b_1*u  \end{bmatrix}$
+
+A Second degree polynomial curve: $Q(u) = \begin{bmatrix} x(u) \\ y(u) \end{bmatrix} = \begin{bmatrix}  a_0 + a_1* u + b_2*u^2\\ b_0 + b_1*u + b_2*u^2  \end{bmatrix} = \begin{bmatrix} a_0 \\ b_0  \end{bmatrix} + \begin{bmatrix}a_1 \\ b_1  \end{bmatrix} * u +  \begin{bmatrix} a_2 \\ b_2  \end{bmatrix} *u^2 $
+
+\begin{example}[Mouse clicks as input]
+using mouse clicks to find the pairing of points, gives you..?
+%Something about adding their coordinates makes no geometric sense?
+%I think his point is that those points don't really correlate to anything that makes sense easily... doable, but makes no sense.. and transposing those values makes it diverge worse.
+%In Modeling, we use a point-space, not a vectorspace. Hence the issue. I think.
+%You just can't transpose it.
+A valid combination: $\alpha_0 + P_0 + \alpha_1 P_1$ If $\alpha_0 + \alpha_1 = 1$
+%What is the name of the property we're defining here?
+Affine combination of points - here independent of coordinates.
+%Something about affine spaces, and the binary encoding of point/vector in computer graphics (usually via the N+1-dimention)
+\end{example}
+

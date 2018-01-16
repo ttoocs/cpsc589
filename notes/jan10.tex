@@ -1,0 +1,41 @@
+\section [Parametric curves]
+3D parametric cruve:
+Parameter $u$, some function $Q$, which outputs 3 dependent variables (Can be viewed as functions themselves of $u$, indepdnent of eachother)
+
+Ex: $Q(u) = \begin{bmatrix}[\cos(u) \\ \sin(u) \\ u]\end{bmatrix}$\\
+
+2D parmametric ellipse:
+$Q(u) = \begin{bmatrix}[X(u) \\ Y(u)] \end{bmatrix} = \begin{bmatrix}[a \cos(u) \\ b \sin(u)] \end{bmatrix}$
+\begin{verbatim}
+input: a,b,inc
+for u=0 to 2*pi step inc
+x=a*cos(u)
+y=a*sin(u)
+//save,oklit,whatnot here
+\end{verbatim}
+
+Note: you can easily very the samples and level of approximation.
+Note: Taking the derivative of a parametric representing, you can find the tangent, (or an approximation of it with small step size) easily.
+Note: Speed/rate of movement matters:
+Ex: $Q(u) = \begin{bmatrix}[X(u) \\ Y(u)] \end{bmatrix} = \begin{bmatrix}[a \cos(u) \\ b   \sin(u)] \end{bmatrix} $ vs $R' = \begin{bmatrix}[X(u) \\ Y(u)] \end{bmatrix} = \begin{bmatrix}[a \cos(2u) \\ b  \sin(2u)] \end{bmatrix}$ \\
+Note: Any papametric representation is not unique, and the tangents vectors are not always the same magnatude.
+
+\begin{definition}[G - continous]
+Geometricly continous: $G^n$
+
+\end{definition}
+
+\begin{definition}[C - continous]
+C- continous: $C^n$ (depends on the tangent)
+\end{definition}
+
+\begin{example}[continous]
+$Q(t) = \begin{bmatrix} [cos(t) \\ sin(t) ] \end{bmatrix}$ - Endlessly G-continous.
+$G^0$ - A sharp corner. 
+
+\end{example}
+
+\begin{remark}
+The issue of parametric representations is in trying to find the curve of a given object: ex 's'.
+Another issue is that it uses functions that are computationally complex (sin/cos)
+\end{remark}
