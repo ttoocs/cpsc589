@@ -3,15 +3,6 @@
 The second degree berenstein polynomial:
 $$ u^2 P_2 + (1-u)*u P_1 + (1-u)^2 P_0 $$
 
-From the prior question we have:
-\begin{align*}
-N_{i,3}(u)  
-            &= \frac {u - u_{i}} {u_{i+2} - u_{i}} \frac{u - u_{i}} {u_{i+1} - u_{i}}  \tag{\text{ if ($ u_i \leq u \leq u_{i+1} $) } } \\
-            &+ \frac {u - u_{i}} {u_{i+2} - u_{i}}  \frac{u_{i+2} - u } { u_{i+2} - u_{i+1}}  \tag{\text{ if ( $u_{i+1} \leq u \leq u_{i+2}$ )}} \\
-            &+ \frac {u_{i+3} - u} { u_{i+3} - u_{i+1}} \frac {u - u_{i}} {u_{i+1} - u_{i}} \tag{\text{ if ( $u_{i+2} \leq u \leq u_{i+3} $)}} \\
-            &+ \frac {u_{i+3} - u} { u_{i+3} - u_{i+1}} \frac{u_{i+2} - u } { u_{i+2} - u_{i+1} } \tag{\text{ if ($ u_{i+3} \leq u \leq u_{i+4} $)}}
-\end{align*}
-
 So for $i=0$:
 \begin{align*}
 N_{i=0,3}(u)
@@ -21,6 +12,10 @@ N_{i=0,3}(u)
             &+ \frac {1 - u} { 1 - 0}\frac{0 - u} {0 - 0} % \tag{\text{ if ($ u_{i+3} \leq u \leq u_{i+4} $)}}
 \end{align*}
 
+%$ (  ( \frac { u - u_{0} }{ u_{ 2} - u_{0} })  (  ( \frac { u - u_{0} }{ u_{ 1} - u_{0} })  if ( u_i \leq  u \leq u_{i+1} ): 1   $ \\
+%$ +  ( \frac { u_{2} - u }{ u_{ 2} - u_{1} })  if ( u_i \leq  u \leq u_{i+1} ): 1   ) $ \\
+%$ +  ( \frac { u_{3} - u }{ u_{ 3} - u_{1} })  (  ( \frac { u - u_{1} }{ u_{ 2} - u_{1} })  if ( u_i \leq  u \leq u_{i+1} ): 1   $ \\
+%$ +  ( \frac { u_{3} - u }{ u_{ 3} - u_{2} })  if ( u_i \leq  u \leq u_{i+1} ): 1   )  )$ \\
 
 So for $i=1$:
 \begin{align*}
@@ -28,13 +23,18 @@ N_{i=1,3}(u)
             &= \frac {u - u_{i}} {u_{i+2} - u_{i}} \frac{u - u_{i}} {u_{i+1} - u_{i}}  \tag{\text{ if ($ u_i \leq u \leq u_{i+1} $) } } \\
             &+ \frac {u - u_{i}} {u_{i+2} - u_{i}}  \frac{u_{i+2} - u } { u_{i+2} - u_{i+1}}  \tag{\text{ if ( $u_{i+1} \leq u \leq u_{i+2}$ )}} \\
             &+ \frac {u_{i+3} - u} { u_{i+3} - u_{i+1}} \frac {u - u_{i}} {u_{i+1} - u_{i}} \tag{\text{ if ( $u_{i+2} \leq u \leq u_{i+3} $)}} \\
-%            &+ \frac {u_{i+3} - u} { u_{i+3} - u_{i+1}} \frac{u_{i+2} - u } { u_{i+2} - u_{i+1} } \tag{\text{ if ($ u_{i+3} \leq u \leq u_{i+4} $)}}
+            &+ \frac {u_{i+3} - u} { u_{i+3} - u_{i+1}} \frac{u_{i+2} - u } { u_{i+2} - u_{i+1} } \tag{\text{ if ($ u_{i+3} \leq u \leq u_{i+4} $)}}
             &= \frac {u - 0} {1 - 0} \frac{u - 0}  {0 - 0} \\
             &+ \frac {u - 0} {1 - 0} \frac{1 - u } { 1 - 0} \\
             &+ \frac {1 - u} {1 - 0} \frac{u - 0 } { 0 - 0} \\
- %           &+ \frac {1 - u} {1 - 0} \frac{1 - u } { 1 - 0} \\
+%           &+ \frac {1 - u} {1 - 0} \frac{1 - u } { 1 - 0} \\
             &= u*(1-u) + (1-u)(1-u)
 \end{align*}
+
+%$ (  ( \frac { u - u_{0} }{ u_{ 2} - u_{0} })  (  ( \frac { u - u_{0} }{ u_{ 1} - u_{0} })  if ( u_i \leq  u \leq u_{i+1} ): 1    $\\
+%$ +  ( \frac { u_{2} - u }{ u_{ 2} - u_{1} })  if ( u_i \leq  u \leq u_{i+1} ): 1   ) $ \\
+%$ +  ( \frac { u_{3} - u }{ u_{ 3} - u_{1} })  (  ( \frac { u - u_{1} }{ u_{ 2} - u_{1} })  if ( u_i \leq  u \leq u_{i+1} ): 1   $ \\
+%$ +  ( \frac { u_{3} - u }{ u_{ 3} - u_{2} })  if ( u_i \leq  u \leq u_{i+1} ): 1   )  )$
 
 So for $i=2$:
 \begin{align*}
@@ -49,5 +49,10 @@ N_{i=2,3}(u)
             &+ \frac {1 - u} { 1 - 1} \frac{1 - u } {1 - 1} 
             &= u*u + (1-u)*u + 0 + 0
 \end{align*}
+
+%$ (  ( \frac { u - u_{0} }{ u_{ 2} - u_{0} })  (  ( \frac { u - u_{0} }{ u_{ 1} - u_{0} })  if ( u_i \leq  u \leq u_{i+1} ): 1  $ \\
+%$  +  ( \frac { u_{2} - u }{ u_{ 2} - u_{1} })  if ( u_i \leq  u \leq u_{i+1} ): 1   ) $ \\
+%$  +  ( \frac { u_{3} - u }{ u_{ 3} - u_{1} })  (  ( \frac { u - u_{1} }{ u_{ 2} - u_{1} })  if ( u_i \leq  u \leq u_{i+1} ): 1   $ \\
+%$ +  ( \frac { u_{3} - u }{ u_{ 3} - u_{2} })  if ( u_i \leq  u \leq u_{i+1} ): 1   )  ) $
 
 Note: Due to the prior question mistakes, i=0, and i=1 is wrong.
