@@ -1,0 +1,17 @@
+(10 marks) The first quadratic B-spline basis function defining on positive integer numbers (knot sequence) is given as: \\
+\begin{enumerate}
+\item Show that N_{0,3} (u) is really a third order spline function (verify the necessary properties only at u = 0). \\
+
+At $N_{0,3}$, we must show that it is continious, and hence a spline function: \\
+At $u=0$:
+$C^0 : 0 = u^2/2 \to  0  = 0$
+$C^1 : 0 = u^2/2 \to  0  = 0$
+$C^2 : 0 = u \to 0 = 0$
+$C^3 : 0 = 0 \to 0 = 0$
+
+Hence, it has $c^3$ continuity at $u=0$, which is all that was requested. \\
+
+\item Determine $N_{5,3} (u)$ (try to use $N+{0,3} (u)$). Show your work. \\
+As the above equation is for the uniform-knot sequence, and there isn't any reason to assume it is not uniform, we can $N_{i,3}(u) = N_{0,3}(u-i)$. Which gives us: \\
+$N_{5,3}(u) = N_{0,3}(u - 5)$ \\
+\end{enumerate}
