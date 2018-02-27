@@ -1,0 +1,14 @@
+(10 marks) Derive the formula of third order B-spline with uniform, integer knot sequence from deBoor’s recursive formula.
+$$N_{i,r}(u) = \frac {u - u_{i}} {u_{i+r-1} - u_{i}} N_{i,r-1}(u)     +      \frac{u_{i+r} - u } { u_{i+r} - u_{i+1}} N_{i+1,r-1} (u)$$
+and 
+$$N_{i,1}(u) = \{ 1 if u_{i} \leq  u  \leq U_{i+1} \\ 0 otherwise$$
+Thus:
+\begin{align*}
+N_{i,3}(u)  &= \frac {u - u_{i}} {u_{i+2} - u_{i}} N_{i,2}(u)     +      \frac{u_{i+3} - u} { u_{i+3} - u_{i+1}} N_{i+1,2} (u)  \\
+            &= \frac {u - u_{i}} {u_{i+2} - u_{i}} ( \frac{u - u_{i}} {u_{i+1} - u_{i}} N_{i,1}(u) +  \frac{u_{i+2} - u } { u_{i+2} - u_{i+1}} N_{i+1,1} )\\
+            &+ \frac {u_{i+3} - u} { u_{i+3} - u_{i+1}} ( \frac {u - u_{i}} {u_{i+1} - u_{i}} N_{i,1}(u) +  \frac{u_{i+2} - u } { u_{i+2} - u_{i+1} } N_{i+1,1}(u) ) \\
+            &= \frac {u - u_{i}} {u_{i+2} - u_{i}} \frac{u - u_{i}} {u_{i+1} - u_{i}}  \tag{\text{ if ($ u_i \leq u \leq u_{i+1} $) } } \\
+            &+ \frac {u - u_{i}} {u_{i+2} - u_{i}}  \frac{u_{i+2} - u } { u_{i+2} - u_{i+1}}  \tag{\text{ if ( $u_{i+1} \leq u \leq u_{i+2}$ )}} \\
+            &+ \frac {u_{i+3} - u} { u_{i+3} - u_{i+1}} \frac {u - u_{i}} {u_{i+1} - u_{i}} \tag{\text{ if ( $u_{i+2} \leq u \leq u_{i+3} $)}} \\
+            &+ \frac {u_{i+3} - u} { u_{i+3} - u_{i+1}} \frac{u_{i+2} - u } { u_{i+2} - u_{i+1} } \tag{\text{ if ($ u_{i+3} \leq u \leq u_{i+4} $)}}
+\end{align*}
