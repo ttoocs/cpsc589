@@ -1,12 +1,14 @@
 (10 marks) For the case of a planar B-spline curve, does symmetry of the control polygon with respect to the y-axis imply the same symmetry for the curve? \\
 
-Yes. \\
+No. \\
 %For the base case, for two points to be symmetric you have two points:(x,y),(-x,y)  (from defn. of symmetric), and  will be at the 0-axis \\
 %For incrementing the number of points, any odd number of points would have the middle-point on the y-axsis.
 %By induction, over the degree of the B-spline curve,
 %While, for more points, and higher-degree curves, the 
 
-ex: $P_0 = (-1,-1), P_1 = (0,0) , P_2 = (1,-1)$, is symmetric, as is \\
-$P_0 = (-1,1), P_1 = (1,1), P_2 = (-1,1), P_3 = (1,1)$  \\
+Assuming uniform knot sequences, this is.
+$P_0 = (-1,-1), P_1 = (0,0) , P_2 = (1,-1)$, is symmetric, as is \\
+//$P_0 = (-1,1), P_1 = (1,1), P_2 = (-1,1), P_3 = (1,1)$  \\
 
-This is given due to the symmetry of the basis functions.
+However, with a different knot sequence: {0,0,1}
+This is no longer symmetric.
