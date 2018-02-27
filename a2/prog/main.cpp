@@ -156,13 +156,9 @@ double bruteN(int i, int r, double u){
 
   if ( r == 1){
   int s = knots.size();
-//  int d = getDelta(i);
-
   if ( i >= 0 && s > i  && INDFIX(knots,i) <= u ){
 
-//    if ( ( (i + 1) < knots.size()) && u < knots[i+1]){
-    if( ( u < knots[i+1] ) && ((i+1) < knots.size()) && (i+1 > 0 ) ){
-  //    std::cout << " if ( u_i \\leq  u \\leq u_{i+1} ): 1 \t";// << std::endl;
+    if( ( u < INDFIX(knots,i+1) )){ // && ((i+1) < knots.size()) && (i+1 > 0 ) ){
       return 1;
     }
   }
@@ -363,7 +359,7 @@ int main () {
 	if (!glfwInit())
 		return 1;
 
-	window = glfwCreateWindow (640, 640, "Scott Saunders A1", NULL, NULL);
+	window = glfwCreateWindow (640, 640, "Scott Saunders A2", NULL, NULL);
 	if (!window)
 		return 1;
 
