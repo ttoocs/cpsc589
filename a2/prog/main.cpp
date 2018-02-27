@@ -29,6 +29,9 @@ int degree = 2;
 
 int move_point = -1;
 
+//#define INDFIX(X,Y) X[ std::max( (int) std::min(0,Y) , (int) X.size())]
+#define INDFIX(X,Y) X[Y] 
+
 int getLocPoint(double x, double y){
     int ret=-1;
     for(int i=0; i < points.size() ; i++){
@@ -109,26 +112,34 @@ std::vector<double> gen_stdr(){
   int len = points.size();
   std::vector<double> knots;
 
+  if(points.size() < 2)
+    return(knots);
+
   for(int i = 0; i < degree  ; i++){
     knots.push_back(0);
   }
 
-  int last=0;
-  for(int i = 0; i < len ; i++){
+  double stepSize = 1 / ( (double) ( (double) (points.size() -1) - (double) (degree + 1) +2)) ;
+//  std::cout << points.size() << "," << degree << "," << std::endl;
+//  std::cout << "stepSize = " << stepSize <<"\t inv: " << 1/stepSize << std::endl;
+  for(double i = 0; i < 1 ; i+=stepSize ){
     knots.push_back(i);
-    last = i;
   }
 
   for(int i = 0; i < degree  ; i++){
-    knots.push_back(last);
+    knots.push_back(1);
   }
   return knots;
 }
 
 
 int getDelta(double u){
+  if(knots.size() < 2)
+    return -1;
+
   for(int i=0; i < knots.size() -1 ; i++){
-    if(u >= knots[i] && ( ( u < knots[i+1] ) || (  ((i+1) >= knots.size()) && ((i+1) > knots[knots.size()]) )))
+    //if(u >= knots[i] && ( ( u < knots[i+1] ) || (  ((i+1) >= knots.size()) && ((i+1) > knots[knots.size()]) )))
+    if(u >= INDFIX(knots,i) && u < INDFIX(knots,i+1)) // || (  ((i+1) >= knots.size()) && ((i+1) > knots[knots.size()]) )))
       return i;
   }
   if(u > knots[knots.size()-1])
@@ -137,17 +148,20 @@ int getDelta(double u){
   return -1;
 }
 
-
+//There is some error occuring in here, about an edge case,
+//It's noticable when the degree =1.
 double bruteN(int i, int r, double u){
-  if( r == 0)
+  if( r < 1)
     std::cout << "zero r" << std::endl;
 
   if ( r == 1){
-//  int s = knots.size();
-  if ( /* s > i  && */ knots[i] <= u ){
+  int s = knots.size();
+//  int d = getDelta(i);
+
+  if ( i >= 0 && s > i  && INDFIX(knots,i) <= u ){
 
 //    if ( ( (i + 1) < knots.size()) && u < knots[i+1]){
-    if( u < knots[i+1] && ((i+1) < knots.size()) ){
+    if( ( u < knots[i+1] ) && ((i+1) < knots.size()) && (i+1 > 0 ) ){
   //    std::cout << " if ( u_i \\leq  u \\leq u_{i+1} ): 1 \t";// << std::endl;
       return 1;
     }
@@ -160,15 +174,15 @@ double bruteN(int i, int r, double u){
  
 //  std::cout << " ( "  ;
 //  std::cout << " ( \\frac { u - u_{" << i << "} }{ u_{ " << i + r - 1 << "} - u_{" << i << "} }) " ;
-  double LHN = (( u-knots[i] ));
-  double LHD = ( knots[i+r-1] - knots[i]);
+  double LHN = (( u- INDFIX(knots,i) ));
+  double LHD = ( INDFIX(knots,i+r-1) - INDFIX(knots,i));
   double LR = bruteN(i,r-1,u);
   double  L = (LHN/LHD) * LR;
 
 //  std::cout << "\n + " ;
 //  std::cout << " ( \\frac { u_{" << i+r << "} - u }{ u_{ " << i + r  << "} - u_{" << i+1 << "} }) " ;
-  double RHN = (( knots[i+r] - u)) ;
-  double RHD =(knots[i+r] - knots[i+1]);
+  double RHN = (( INDFIX(knots,i+r) - u)) ;
+  double RHD =(INDFIX(knots,i+r) - INDFIX(knots,i+1));
   double RR = bruteN(i+1,r-1,u);
   double R= (RHN/RHD)*RR;
 
@@ -184,6 +198,8 @@ double bruteN(int i, int r, double u){
 
 vec2 bruteS(double u){
   vec2 s= vec2(0,0);
+  //Here we can add in an optimzatoin
+  //for(int i = min(((int) u) - degree,0) 
   for(int i = 0; i < points.size(); i++){
     s=s + points[i]*bruteN(i,degree,u);
   }
@@ -201,7 +217,7 @@ vec2 fancy(double u){
     for(int r=degree+1; r == 2 ; r -= 1){
       int i = delta;
       for(int s=0 ; s == r-2; s++){
-        double omega = (u - knots[i])/(knots[i+r-1] - knots[i]);
+        double omega = (u - INDFIX(knots,i))/(INDFIX(knots,i+r-1) - INDFIX(knots,i));
         coeff[s]  = omega * coeff[s] + (1-omega)*coeff[s+1];
         i=i-1;
       }
@@ -222,7 +238,7 @@ std::vector<vec2> get_NURB(){
     return pos;
 
   
-  for(double u=0 + 2 ; u < points.size() -2  ; u+= stepSize){
+  for(double u=0 ; u < 1  ; u+= stepSize){
     pos.push_back(bruteS(u));
 //    pos.push_back(fancy(u));
   }
@@ -356,7 +372,10 @@ int main () {
 	glfwSetMouseButtonCallback (window, mouseClick);
 	glfwSetCursorPosCallback (window, mousePos);
   glfwSetScrollCallback(window, scroll_callback);
-  
+ 
+  points.clear();
+  weights.clear();
+  knots.clear();
   knots = gen_stdr();
 //  bruteN(0,3,2);  
 
