@@ -156,7 +156,8 @@ double bruteN(int i, int r, double u){
 
   if ( r == 1){
   int s = knots.size();
-  if ( i >= 0 && s > i  && INDFIX(knots,i) <= u ){
+  //if ( i >= 0 && s > i  && INDFIX(knots,i) <= u ){
+  if ( INDFIX(knots,i) <= u){
 
     if( ( u < INDFIX(knots,i+1) )){ // && ((i+1) < knots.size()) && (i+1 > 0 ) ){
       return 1;
