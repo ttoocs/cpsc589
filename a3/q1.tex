@@ -1,8 +1,10 @@
-1.
-a) No - mobious strip, has only a single side, that is apprent on both 'sides' of the object.
+(15 marks) Answer the following questions briefly
+\begin{enumerate}
+\item Does every closed 2D manifold necessarily divide the space into an inside and an outside? Justify your answer. \\
+No - mobious strip, has only a single side, that is apprent on both 'sides' of the object.\\
 
-b)
-As we are aware a generalized cone is a subset of a ruled surface, and as is generalized cylinder, if we show that a coon can represent a given ruled surface, we have shown it can make generalized cones/cylinders.
+\item Show that general cones and general cylinders are special cases of Coons surfaces. \\
+As we are aware a generalized cone is a subset of a ruled surface, and as is generalized cylinder, if we show that a coon can represent a given ruled surface, we have shown it can make generalized cones/cylinders. \\
 
 A ruled surfance is paramterized as follows: $Q(u,v) = (1 - v)P_0(u) + vP_1(u)$. \\
 Where as a Coons Patch can be expressed as: $Q(u, v) =$ \\
@@ -21,7 +23,9 @@ $Q_o(v)(1u) + Q_1(v)(u)$ \\
 \end{align*}
 Which is what is being subtracted as the last term/bilinear patch.
 
-c) What is filter?
+\item Find a set of subdivision filters that guarantees C 4 continuity. You may ignore boundary
+conditions. \\
 (1/32)(1,6,15,20,15,6,1) \\
 Generated via pascals triangle and the properties of general B-spline. \\
-
+The pascal triangle /$(2^n)$, where n is the layer down in pascal triangle (with a slight offset), is just a pattern recongnized to match the B-spline's filiters, as discussed in class and in the notes. And as these are the filters of B-splines, we need an order 7 B-spline.
+\end{enumerate}

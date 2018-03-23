@@ -1,11 +1,16 @@
-a)% no ideas.
+%a)% no ideas.
 % You can tell how smooth based on hwen eigen values start to repeat. (two or more)
 % so for quadratic 1/2 1/4 1/4 (only two spots, then rest are same)
 % so for cubic 1 1/2 1/4 1/8  1/8 (three spots?
 % so 1 1/2 1/6... so not as smooth
+(20 marks) Consider the following local subdivision matrix for a new subdivision scheme (a modification.. \\
+
+\begin{enumerate}
+\item Compare the smoothness of this scheme with the cubic B-spline subdivision scheme. \\
 You can tell how smooth it is based on when the eigen values start repeating: \\
 Where quadratic is $1/2, 1/4, 1/4$ \\
 and cubic is $1, 1/2, 1/4, 1/8, 1/8$ \\
 Hence, this provided filiter is less-smooth than cubic, and smoother than quadratic. \\
-b)
-Yes, all weights of the filter are sum-to-one in a row \\
+\item Is the resulting curve“coordinate free”? Justify your answer. \\
+Yes, all weights of the filter are sum-to-one in any given row, which is a suffishent condition for convex-hull. \\
+\end{enumerate}

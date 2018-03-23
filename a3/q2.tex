@@ -1,5 +1,7 @@
-2.
-a) 
+(20 marks) A closed mesh (i.e. no boundary vertices) is saved in a half-edge data structure. For a given face f , write, in pseudocode, an algorithm that
+
+\begin{enumerate}
+\item finds all faces adjacent to f
 \begin{verbatim}
 let f be our current face,
 e = f.getEdge();
@@ -10,7 +12,7 @@ while(e != f.getEdge());
 
 return adj;
 \end{verbatim}
-b)
+\item all vertices that are on f or connected to f by an edge.
 \begin{verbatim}
 let f be our current face,
 e = f.getEdge();
@@ -27,3 +29,5 @@ while(e != f.getEdge());
 
 return verts;
 \end{verbatim}
+
+\end{enumerate}
