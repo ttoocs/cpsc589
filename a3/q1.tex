@@ -6,17 +6,17 @@ No - For example the mobious strip. It only has a single side, making it rather 
 \item Show that general cones and general cylinders are special cases of Coons surfaces. \\
 As we are aware a generalized cone is a subset of a ruled surface, and as is generalized cylinder, if we show that a coon can represent a given ruled surface, we have shown it can make generalized cones/cylinders. \\
 
-A ruled surfance is paramterized as follows: $Q(u,v) = (1 - v)P_0(u) + vP_1(u)$. \\
+A ruled surface is parameterized as follows: $Q(u,v) = (1 - v)P_0(u) + vP_1(u)$. \\
 Where as a Coons Patch can be expressed as: $Q(u, v) =$ \\
 $[Q_0 (v)(1 - u) + Q_1 (v)u]$ (the first ruled surface) \\
 $+ [P_0 (u)(1 - v) + P_1 (u)v]$ (the second ruled surface) \\
-$- [(1 - u)(1 - v)P_{00} + u(1 - v)P_{01} + (1 - u)vP_{10} + uvP_{11} ]$ (The bilinear patch) \\
+$- [(1 - u)(1 - v)P_{00} + u(1 - v)P_{01} + (1 - u)vP_{10} + uvP_{11} ]$ (The bi-linear patch) \\
 
 If we define $P_0(u) = (1-u)P_{00} + uP_{01}$ \\
 If we define $P_1(u) = (1-u)P_{10} + uP_{11}$ \\
 we get: \\
 $Q_o(v)(1u) + Q_1(v)(u)$ \\
-as the remiaining terms cancel out:
+as the remaining terms cancel out:
 \begin{align*}
 [P_0 (u)(1 - v) + P_1 (u)v] &= \\
 &= (1-v)((1-u)P_{00} + uP_{01}) + v((1-u)P_{10} + uP_{11}) \\
@@ -28,5 +28,5 @@ Which is what is being subtracted as the last term/bilinear patch, canceling it 
 conditions. \\
 (1/32)(1,6,15,20,15,6,1) \\
 Generated via pascals triangle and the properties of general B-spline. \\
-The pascal triangle /$(2^n)$, where n is the layer down in pascal triangle (with a slight offset), is just a pattern recongnized to match the B-spline's filiters, as discussed in class and in the notes. And as these are the filters of B-splines, we need an order 7 B-spline, which is the row chosen here.
+The pascal triangle /$(2^n)$, where n is the layer down in pascal triangle (with a slight offset), is just a pattern recognized to match the B-spline's filters, as discussed in class and in the notes. And as these are the filters of B-splines, we need an order 7 B-spline, which is the row chosen here.
 \end{enumerate}

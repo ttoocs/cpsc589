@@ -18,7 +18,7 @@ This simply iterates of each edge of the face, and appends it's face to the retu
 \begin{verbatim}
 let f be our current face,
 e = f.edge;
-verts<verticies>;
+verts<vertices>;
 
 do
   verts.push_back(e.source);
@@ -32,6 +32,6 @@ while(e != f.getEdge);
 
 return verts;
 \end{verbatim}
-Outer loop, iterates over all all vertces that are on f, and adds them. \\
-Inner loop, iterates over all edges of a given vertex, and adds their verticies (excet the one we're currently one, and it's next one, as that'll get added in the next iteration of the outer loop)
+Outer loop, iterates over all all vertices that are on f, and adds them. \\
+Inner loop, iterates over all edges of a given vertex, and adds their vertices (except the one we're currently one, and it's next one, as that'll get added in the next iteration of the outer loop)
 \end{enumerate}
