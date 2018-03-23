@@ -1,0 +1,29 @@
+2.
+a) 
+\begin{verbatim}
+let f be our current face,
+e = f.getEdge();
+do
+  adj.push_back( e.opposite.face() );
+  e=e.next();
+while(e != f.getEdge());
+
+return adj;
+\end{verbatim}
+b)
+\begin{verbatim}
+let f be our current face,
+e = f.getEdge();
+
+do
+  verts.push_back(e.source() );
+  e2 = e;
+  do
+    e.
+  while ( e2 != e)
+//  verts.push_back(e.getOpposite.next().next().getSource());
+  e=e.next();
+while(e != f.getEdge());
+
+return verts;
+\end{verbatim}

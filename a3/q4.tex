@@ -1,0 +1,34 @@
+\begin{itemize}
+\item Doo-Sabin method: \\
+From the origonal paper: \\
+"In this process, 3 types of new faces can be formed: \\
+a) Type F: A 5-sided face will give a new smaller 5-sided face within itself and bears a smiliar shape, this type of new face is termed Type F (fromed by face). \\
+b) Type V: A vecterx common to 4 faces, i.e. a corner where 3 faces joined togeather having three common boundaries, will produce a 3-sided face, this is Termed type V, (fromed by vertex). \\
+c) Type E: On each common boundary of two adjacent faces, a 4-sided face will be formed, this is termed Type E (fromed by edge). \\
+
+  The new polyhedron will consist of these 3 types of new faces. A n-sided face will provide a basis for a smaller n-sided F type new face, it will remain n-sided as the subdivision carries on and will gradually converge to the centroid and diminish to an acceptable size. A common edge will always produce a 4-sided new face, and m-spoked vertex will produce a m-sided V type face, which will, in turn, become the basis of a smaller m-sided F type face in the next subdivision process." \\
+
+Taking this togeather, you have:
+$f' = f + e + v$ \\
+
+(Again from the paper, as I have read it and cannot un-read it)
+Each e will give a 4-sided polygon with 4 new verticies, however any two adjacent edges on a face will generate only one new vertex on that face, therefore the number of new verticies formed will be: \\
+$v' = 4 e / 2 = 2e$ \\
+Note: This can also be verified by the expansion/shrinking method of thinking about it: As each edge is shrunk/extended, the end of each old-edge, now creates a vertex, independed of any other edge. This gives $v' = 2e$. \\
+
+Finnally, we use Euler's formula for polyhedron: $F+V-E=2$ to get the number of edges: \\
+$e'=f'+v'-2$ \\
+$e'=f+e+v + 2e + -2$ \\
+$e'= f + v + 3e -2$ \\
+
+
+\item Loop method: \\
+Each edge is divided in half, giving  \\
+$e' = 2e + (e/3)*3 = 2e+ e = 3e;$ \\
+$v' = v+e;$ \\
+and $f' = f*4$ \\
+%so using euler's formula to verify on a single triangle: \\
+%$F+V-E=2$ \\
+%Single triangle: e=3; f=1, v=3;\\
+%1+3-3=2
+\end{itemize}
