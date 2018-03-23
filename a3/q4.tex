@@ -12,13 +12,13 @@ c) Type E: On each common boundary of two adjacent faces, a 4-sided face will be
 
   The new polyhedron will consist of these 3 types of new faces. A n-sided face will provide a basis for a smaller n-sided F type new face, it will remain n-sided as the subdivision carries on and will gradually converge to the centroid and diminish to an acceptable size. A common edge will always produce a 4-sided new face, and m-spoked vertex will produce a m-sided V type face, which will, in turn, become the basis of a smaller m-sided F type face in the next subdivision process." \\
 
-Taking this togeather, you have:
+Taking this togeather, you have: \\
 $f' = f + e + v$ \\
 
-(Again from the paper, as I have read it and cannot un-read it)
+(Again from the paper, as I have read it and cannot un-read it) \\
 Each e will give a 4-sided polygon with 4 new verticies, however any two adjacent edges on a face will generate only one new vertex on that face, therefore the number of new verticies formed will be: \\
 $v' = 4 e / 2 = 2e$ \\
-Note: This can also be verified by the expansion/shrinking method of thinking about it: As each edge is shrunk/extended, the end of each old-edge, now creates a vertex, independed of any other edge. This gives $v' = 2e$. \\
+Note: This can also be verified by the expansion/shrinking method of thinking about it: As each edge is shrunk/extended, each end of each old-edge, now creates a vertex, independed of any other edge. This gives $v' = 2e$. \\
 
 Finnally, we use Euler's formula for polyhedron: $F+V-E=2$ to get the number of edges: \\
 $e'=f'+v'-2$ \\
@@ -26,11 +26,20 @@ $e'=f+e+v + 2e + -2$ \\
 $e'= f + v + 3e -2$ \\
 
 
+In summary: \\
+$f' = f + e + v$ \\
+$v' = 2e$ \\
+$e'= f + v + 3e -2$ \\
+
 \item Loop method: \\
-Each edge is divided in half, giving  \\
-$e' = 2e + (e/3)*3 = 2e+ e = 3e;$ \\
+%Each edge is divided in half, giving  \\
+%$e' = 2e + (e/3)*3 = 2e+ e = 3e;$ \\
+Each edge is dubled, and each face procudes 3 new edges giving:
+$f' = 2e + 3*f$ \\
+Each vertex is kept, while each edge is cut in half with a new vertex giving:
 $v' = v+e;$ \\
-and $f' = f*4$ \\
+Each face procudes 3 new ones, and persists through giving:
+ $f' = f*4$ \\
 %so using euler's formula to verify on a single triangle: \\
 %$F+V-E=2$ \\
 %Single triangle: e=3; f=1, v=3;\\

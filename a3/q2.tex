@@ -1,33 +1,37 @@
 (20 marks) A closed mesh (i.e. no boundary vertices) is saved in a half-edge data structure. For a given face f , write, in pseudocode, an algorithm that
 
 \begin{enumerate}
-\item finds all faces adjacent to f
+\item finds all faces adjacent to f \\
 \begin{verbatim}
 let f be our current face,
-e = f.getEdge();
+e = f.edge;
+adj<faces>;
 do
-  adj.push_back( e.opposite.face() );
-  e=e.next();
-while(e != f.getEdge());
+  adj.push_back( e.pair.face );
+  e=e.next;
+while(e != f.getEdge);
 
 return adj;
 \end{verbatim}
-\item all vertices that are on f or connected to f by an edge.
+This simply iterates of each edge of the face, and appends it's face to the returned value.\\
+\item all vertices that are on f or connected to f by an edge. \\
 \begin{verbatim}
 let f be our current face,
-e = f.getEdge();
+e = f.edge;
+verts<verticies>;
 
 do
-  verts.push_back(e.source() );
+  verts.push_back(e.source);
   e2 = e;
   do
-    e.
-  while ( e2 != e)
-//  verts.push_back(e.getOpposite.next().next().getSource());
-  e=e.next();
-while(e != f.getEdge());
+    verts.push_back(e2.source);
+    e2 = e2.next.pair
+  while ( e2 != e || e2 != e.next.pair)
+  e=e.next;
+while(e != f.getEdge);
 
 return verts;
 \end{verbatim}
-
+Outer loop, iterates over all all vertces that are on f, and adds them. \\
+Inner loop, iterates over all edges of a given vertex, and adds their verticies (excet the one we're currently one, and it's next one, as that'll get added in the next iteration of the outer loop)
 \end{enumerate}

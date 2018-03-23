@@ -1,12 +1,16 @@
 (10 marks) Show that Loop subdivision has the strong convex hull property. \\
 
-To show this, we need only to show that all weights on any verticies are non-negative. \\
+To show this, we need only to show that all weights on all verticies are non-negative. \\
 For each edge weighting:\\ 
 $e^{i+1} = \frac{3}{8}v_1^i + \frac{3}{8} v_2^i + \frac{1}{8} v_3^i + \frac{1}{8} v_4^i$ \\
 Clearly, each component is non-negative. (and is sum to 1)\\
-For each vertix weighting: \\
+For each vertex weighting: \\
 $v^{i+1} = (1 - n \alpha )v^i + \alpha \sum v^i_j $ \\
 Where $\alpha = \frac{1}{n} ( \frac{5}{8} - ( \frac{3}{8} + \frac{1}{4} \cos \frac{2 \pi }{n})^2 )$ \\
-is always positive as the innter term: $( \frac{3}{8} + \frac{1}{4} \cos \frac{2 \pi }{n})^2 )$ is always between $[0,1]$.
-
-
+%is always positive as the innter term: $( \frac{3}{8} + \frac{1}{4} \cos \frac{2 \pi }{n})^2 )$ is always between $[0,1]$, and hence never negative.
+Here, cos will return [-1,1], and hence, the largest value of the inner term is $1/2$, squared is $1/4$. \\
+Giving $\alpha = \frac{1}{n} ( \frac{5}{8} - \frac{1}{4} )$ or $\alpha = \frac{1}{n} \frac{1}{4}$. \\
+Which, is always positive, as $n$ is always positive, and at max size: $\frac{1}{4 n}$ \\
+So $v^{i+1} = (1 - n \alpha)v^i + \alpha \sum v^i_j$  has the coeffishents of $1-\frac{1}{4} , \frac{1}{4n}$  \\
+And hence, it's coeffishents are always positive. \\
+Hence, it has convex hull property.
